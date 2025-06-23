@@ -10,6 +10,7 @@
   "scripts": {
     "build": "tsc"
   },
+  "private": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/maksiksq/markdown-it-image-caption.git"
