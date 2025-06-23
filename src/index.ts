@@ -1,6 +1,17 @@
 import markdownIt, {Options, Renderer, Token} from "markdown-it";
 
-const markdownItImageCaption = (md: markdownIt): void => {
+export interface args {
+    imgClass?: string;
+    figureClass?: string;
+    figcaptionClass?: string;
+}
+
+const markdownItImageCaption = (md: markdownIt, {
+                                    imgClass,
+                                    figureClass,
+                                    figcaptionClass
+                                }: args = {}
+                                ): void => {
     const old = md.renderer.rules.image;
 
     md.renderer.rules.image = (tokens: Token[], idx: number, options: Options, env: any, self: Renderer): string => {
@@ -10,11 +21,11 @@ const markdownItImageCaption = (md: markdownIt): void => {
             let src = attrs[0][1];
             let alt = tokens[idx].content;
 
-            const imgTag = `<img src="${src}" alt="${alt}" ${title !== ':::nocaption' ? ` title="${title}"` : ''} />`;
+            const imgTag = `<img src="${src}" ${imgClass ? ` class="${imgClass}"` : ''} alt="${alt}" ${title !== ':::nocaption' ? ` title="${title}"` : ''} />`;
 
             return title !== ':::nocaption'
-                ? `<figure>${imgTag}<figcaption>${title}</figcaption></figure>`
-                : `<figure>${imgTag}</figure>`;
+                ? `<figure ${figureClass ? ` class="${figureClass}"` : ''}>${imgTag}<figcaption ${figcaptionClass ? ` class="${figcaptionClass}"` : ''}>${title}</figcaption></figure>`
+                : `<figure ${figureClass ? ` class="${figureClass}"` : ''}>${imgTag}</figure>`;
         }
         if (old) {
             return old(tokens, idx, options, env, self);
@@ -25,4 +36,4 @@ const markdownItImageCaption = (md: markdownIt): void => {
     }
 };
 
-export = markdownItImageCaption;
+export default markdownItImageCaption;
