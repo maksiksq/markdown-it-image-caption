@@ -32,4 +32,3 @@ And with some extra styling,
 ![alt-text](image-source ':::nocaption')
 ```
 <br>
-
