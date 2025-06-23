@@ -1,6 +1,6 @@
 {
   "name": "@maksiks/markdown-it-image-caption",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Cleanly add a <figcaption> to your markdown-it images.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
