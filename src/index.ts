@@ -16,7 +16,7 @@ export default (md: markdownIt): void => {
         if (old) {
             return old(tokens, idx, options, env, self);
         } else {
-            console.warn('@maksiks/markdown-it-image-caption: original rendered doesn\'t exist, something went horribly wrong.');
+            console.warn('@maksiks/markdown-it-image-caption: original renderer doesn\'t exist, something went horribly wrong.');
             return '';
         }
     }
