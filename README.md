@@ -4,7 +4,10 @@
 <hr/>
 
 This [markdown-it](https://github.com/markdown-it/markdown-it) plugin allows you to easily wrap your markdown images in `<figure>` and add a `<figcaption>` to them if you add an extra string after the image source. You can optionally leave it as an `<img>` or just a standalone `<figure>` without a caption as well.
-
+### 📦 Install
+```powershell
+pnpm i @maksiks/markdown-it-image-caption
+```
 ### ✏️ The syntax:<br>
 ```markdown
 ![alt-text](image-source 'caption')
