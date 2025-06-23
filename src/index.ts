@@ -25,4 +25,4 @@ const markdownItImageCaption = (md: markdownIt): void => {
     }
 };
 
-export default markdownItImageCaption;
+export = markdownItImageCaption;
