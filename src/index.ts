@@ -2,7 +2,7 @@ import markdownIt, {Options, Renderer, Token} from "markdown-it";
 
 'use strict';
 
-export const cap_plugin = (md: markdownIt): void => {
+export default (md: markdownIt): void => {
     const old = md.renderer.rules.image;
 
     md.renderer.rules.image = (tokens: Token[], idx: number, options: Options, env: any, self: Renderer): string => {
