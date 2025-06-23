@@ -9,7 +9,12 @@ const markdownItImageCaption = (md: markdownIt): void => {
             let title = attrs[2][1];
             let src = attrs[0][1];
             let alt = tokens[idx].content;
-            return `<figure><img src="${src}" alt="${alt}" title="${title}" /><figcaption>${title}</figcaption></figure>`
+
+            const imgTag = `<img src="${src}" alt="${alt}" ${title !== ':::nocaption' ? ` title="${title}"` : ''} />`;
+
+            return title !== ':::nocaption'
+                ? `<figure>${imgTag}<figcaption>${title}</figcaption></figure>`
+                : `<figure>${imgTag}</figure>`;
         }
         if (old) {
             return old(tokens, idx, options, env, self);
