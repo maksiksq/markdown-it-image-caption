@@ -1,6 +1,6 @@
 {
   "name": "@maksiks/markdown-it-image-caption",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cleanly add a <figcaption> to your markdown-it images.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -29,7 +29,7 @@
     "url": "https://github.com/maksiksq/markdown-it-image-caption/issues"
   },
   "peerDependencies": {
-    "markdown-it": "^13.0.1"
+    "markdown-it": ">=13"
   },
   "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf",
   "devDependencies": {
