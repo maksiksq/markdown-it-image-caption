@@ -22,7 +22,7 @@ const text = md.render("![ngc-6992 (a really cool nebula)](https://i.redd.it/ggf
 ```
 
 And with some extra styling,
-### ✨ This renders into:
+### ✨ This renders into: <br><br>
 ![example](https://github.com/maksiksq/markdown-it-image-caption/blob/master/assets/images/img.png)
 
 <br>
