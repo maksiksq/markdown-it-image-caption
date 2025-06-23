@@ -1,7 +1,7 @@
 {
   "name": "@maksiks/markdown-it-image-caption",
-  "version": "1.0.0",
-  "description": "Cleanly wraps your images in <figure> and allows you to add a caption to them.",
+  "version": "1.0.8",
+  "description": "Cleanly add a <figcaption> to your markdown-it images.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -10,6 +10,7 @@
   "scripts": {
     "build": "tsc"
   },
+  "private": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/maksiksq/markdown-it-image-caption.git"
@@ -22,13 +23,19 @@
     "caption",
     "figcaption"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "author": "maksiks",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/maksiksq/markdown-it-image-caption/issues"
   },
   "peerDependencies": {
-    "markdown-it": "^14.1.0"
+    "markdown-it": ">=13"
   },
   "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf",
   "devDependencies": {
