@@ -1,7 +1,7 @@
 {
   "name": "@maksiks/markdown-it-image-caption",
   "version": "1.0.0",
-  "description": "Cleanly wraps your images in <figure> and allows you to add a caption to them.",
+  "description": "Cleanly add a <figcaption> to your markdown-it images.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
