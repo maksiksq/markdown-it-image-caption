@@ -14,3 +14,5 @@ yarn-error.log*
 /.idea/markdown-it-image-caption.iml
 /.idea/modules.xml
 /pnpm-lock.yaml
+/dist/index.cjs
+/dist/index.mjs
