@@ -1,10 +1,10 @@
 import markdownIt, {Options, Renderer, Token} from "markdown-it";
 
 export interface args {
-    allFigClasslist?: string;
+    figClasslist?: string;
 }
 
-const markdownItImageCaption = (md: markdownIt, {allFigClasslist}: args = {}): void => {
+const markdownItImageCaption = (md: markdownIt, {figClasslist}: args = {}): void => {
     const old = md.renderer.rules.image;
 
     md.renderer.rules.image = (tokens: Token[], idx: number, options: Options, env: any, self: Renderer): string => {
@@ -21,7 +21,7 @@ const markdownItImageCaption = (md: markdownIt, {allFigClasslist}: args = {}): v
             const inclasses = settings[2]?.trim();
 
             const imgTag = `<img src="${src}" alt="${alt}" ${title !== ':::nocaption' ? ` title="${title}"` : ''} />`;
-            const figClasses = `${allFigClasslist ? ` class="${allFigClasslist} ${inclasses}"` : `${inclasses}`}`
+            const figClasses = `${figClasslist ? ` class="${figClasslist} ${inclasses}"` : `${inclasses}`}`
 
             // :::nocaption = no caption
             // if not top it defaults to bottom
