@@ -17,3 +17,4 @@ yarn-error.log*
 /dist/index.cjs
 /dist/index.mjs
 /.env
+/.gh-publish-tmp/
