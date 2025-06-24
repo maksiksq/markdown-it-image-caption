@@ -15,8 +15,11 @@ fs.cpSync("dist", tmp, { recursive: true });
 const pkg = JSON.parse(fs.readFileSync("package.json", "utf-8"));
 pkg.name = "@maksiksq/" + pkg.name.split("/")[1];
 pkg.publishConfig = { registry: "https://npm.pkg.github.com/" };
+console.log(pkg);
+
 fs.writeFileSync(`${tmp}/package.json`, JSON.stringify(pkg, null, 2));
 
 execSync(`cd ${tmp} && pnpm publish`, { stdio: "inherit" });
 
 fs.rmSync(tmp, { recursive: true, force: true });
+
