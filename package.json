@@ -1,5 +1,5 @@
 {
-  "name": "@maksiks/markdown-it-image-caption",
+  "name": "@maksiksq/markdown-it-image-caption",
   "version": "1.1.2",
   "description": "Cleanly add a <figcaption> to your markdown-it images.",
   "main": "dist/index.cjs",
