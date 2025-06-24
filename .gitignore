@@ -17,9 +17,3 @@ yarn-error.log*
 /dist/index.cjs
 /dist/index.mjs
 /.env
-/.npmrc
-/.gh-publish-tmp/index.cjs
-/.gh-publish-tmp/index.d.ts
-/.gh-publish-tmp/index.js
-/.gh-publish-tmp/index.mjs
-/.gh-publish-tmp/package.json
