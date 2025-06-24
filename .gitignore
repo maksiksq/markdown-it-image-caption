@@ -18,3 +18,4 @@ yarn-error.log*
 /dist/index.mjs
 /.env
 /.gh-publish-tmp/
+/.npmrc
