@@ -8,7 +8,11 @@
     "moduleResolution": "Node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true
+    "strict": true,
+
+    "emitDeclarationOnly": true,
+    "sourceMap": true,
+    "rootDir": "src"
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

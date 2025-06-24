@@ -2,14 +2,15 @@
   "name": "@maksiksq/markdown-it-image-caption",
   "version": "1.0.11",
   "description": "Cleanly add a <figcaption> to your markdown-it images.",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "type": "module",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc && rollup -c"
   },
   "private": false,
   "repository": {
@@ -25,10 +26,9 @@
     "figcaption"
   ],
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.mjs",
+    "types": "./dist/index.d.ts"
   },
   "author": "maksiks",
   "license": "ISC",
@@ -40,7 +40,13 @@
   },
   "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf",
   "devDependencies": {
-    "@types/markdown-it": "^14.1.2"
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.3",
+    "@types/markdown-it": "^14.1.2",
+    "rollup": "^4.44.0",
+    "tslib": "^2.8.1"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

@@ -9,3 +9,10 @@ yarn-error.log*
 .pnp.js
 
 .vscode/*
+/dist/index.d.ts
+/dist/index.js
+/.idea/markdown-it-image-caption.iml
+/.idea/modules.xml
+/pnpm-lock.yaml
+/dist/index.cjs
+/dist/index.mjs
