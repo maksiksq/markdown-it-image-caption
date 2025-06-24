@@ -1,6 +1,6 @@
 # 🌃 markdown-it-image-caption (wizardified)
 
-**Note:** this is a quick fork of [@andatoshiki/markdown-it-image-caption](https://www.npmjs.com/package/@andatoshiki/markdown-it-image-caption) but with full Typescript support and no unnecessary `<strong>` tags.
+**Note:** this is a fork of [@andatoshiki/markdown-it-image-caption](https://www.npmjs.com/package/@andatoshiki/markdown-it-image-caption) but with full Typescript support, no unnecessary `<strong>` tags and some extra features.
 <hr/>
 
 This [markdown-it](https://github.com/markdown-it/markdown-it) plugin allows you to easily wrap your markdown images in `<figure>` and add a `<figcaption>` to them if you add an extra string after the image source. You can optionally leave it as an `<img>` or just a standalone `<figure>` without a caption as well.
@@ -27,11 +27,22 @@ const text = md.render("![ngc-6992 (a really cool nebula)](https://i.redd.it/ggf
 And with some extra styling,
 ### ✨ This renders into: <br><br>
 ![example](https://github.com/maksiksq/markdown-it-image-caption/blob/master/assets/images/img.png)
-
+I'm also a caption, hello how are you?
 <br>
 
 **Note:** if there is no caption provided e.g. a decorative image, it will be an `<img>` like usual. If you want to keep it a `<figure>` for semantic or other reasons, just replace the caption with `:::nocaption` like this:<br>
 ```markdown
 ![alt-text](image-source ':::nocaption')
 ```
-<br>
+### 📜 Styling
+To style the figures, the images or the captions you can optionally assign a class to each:
+```js
+import mditimgcap from '@maksiksq/markdown-it-image-caption';
+
+const md = markdownit()
+        .use(mditimgcap, {
+            imgClass: 'neat-img',
+            figureClass: 'neat-fig',
+            figcaptionClass: 'neat-figcap',
+        });
+```
