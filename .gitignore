@@ -16,3 +16,4 @@ yarn-error.log*
 /pnpm-lock.yaml
 /dist/index.cjs
 /dist/index.mjs
+/.env
