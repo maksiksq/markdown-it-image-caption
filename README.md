@@ -46,3 +46,7 @@ const md = markdownit()
             figcaptionClass: 'neat-figcap',
         });
 ```
+
+
+you can provide a class for each figure, to access the inner img and figcap use css selectors (it's this way to reduce the amount of stuff you type in here)
+remove the global img and figcap classes???

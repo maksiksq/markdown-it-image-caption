@@ -1,31 +1,48 @@
 import markdownIt, {Options, Renderer, Token} from "markdown-it";
 
 export interface args {
-    imgClass?: string;
-    figureClass?: string;
-    figcaptionClass?: string;
+    globalImgClasses?: string;
+    globalFigureClasses?: string;
+    globalFigcaptionClasses?: string;
 }
 
 const markdownItImageCaption = (md: markdownIt, {
-                                    imgClass,
-                                    figureClass,
-                                    figcaptionClass
+                                    globalImgClasses,
+                                    globalFigureClasses,
+                                    globalFigcaptionClasses
                                 }: args = {}
                                 ): void => {
     const old = md.renderer.rules.image;
 
     md.renderer.rules.image = (tokens: Token[], idx: number, options: Options, env: any, self: Renderer): string => {
         if (tokens[idx]?.attrs?.[2]) {
+            // whole values
             let attrs = tokens[idx].attrs;
-            let title = attrs[2][1];
+            let settings = attrs[2][1].split('|');
             let src = attrs[0][1];
             let alt = tokens[idx].content;
 
-            const imgTag = `<img src="${src}" ${imgClass ? ` class="${imgClass}"` : ''} alt="${alt}" ${title !== ':::nocaption' ? ` title="${title}"` : ''} />`;
+            // inner bits
+            let title = settings[0];
+            let pos = settings[1]?.trim();
+            let classname = settings[2]?.trim();
 
+
+            console.log("settings:")
+            console.log(settings);
+            console.log(title)
+            console.log(pos)
+            console.log(classname)
+
+            const imgTag = `<img src="${src}" ${globalImgClasses ? ` class="${globalImgClasses}"` : ''} alt="${alt}" ${title !== ':::nocaption' ? ` title="${title}"` : ''} />`;
+
+            // :::nocaption = no caption
+            // if not top it defaults to bottom
             return title !== ':::nocaption'
-                ? `<figure ${figureClass ? ` class="${figureClass}"` : ''}>${imgTag}<figcaption ${figcaptionClass ? ` class="${figcaptionClass}"` : ''}>${title}</figcaption></figure>`
-                : `<figure ${figureClass ? ` class="${figureClass}"` : ''}>${imgTag}</figure>`;
+                ? pos !== 'top'
+                    ? `<figure ${globalFigureClasses ? ` class="${globalFigureClasses}"` : ''}>${imgTag}<figcaption ${globalFigcaptionClasses ? ` class="${globalFigcaptionClasses}"` : ''}>${title}</figcaption></figure>`
+                    : `<figure ${globalFigureClasses ? ` class="${globalFigureClasses}"` : ''}><figcaption ${globalFigcaptionClasses ? ` class="${globalFigcaptionClasses}"` : ''}>${title}</figcaption>${imgTag}</figure>`
+                : `<figure ${globalFigureClasses ? ` class="${globalFigureClasses}"` : ''}>${imgTag}</figure>`;
         }
         if (old) {
             return old(tokens, idx, options, env, self);
