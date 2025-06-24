@@ -39,9 +39,10 @@ const markdownItImageCaption = (md: markdownIt, {
             // :::nocaption = no caption
             // if not top it defaults to bottom
             return title !== ':::nocaption'
-                ? pos !== 'top'
-                    ? `<figure ${globalFigureClasses ? ` class="${globalFigureClasses}"` : ''}>${imgTag}<figcaption ${globalFigcaptionClasses ? ` class="${globalFigcaptionClasses}"` : ''}>${title}</figcaption></figure>`
-                    : `<figure ${globalFigureClasses ? ` class="${globalFigureClasses}"` : ''}><figcaption ${globalFigcaptionClasses ? ` class="${globalFigcaptionClasses}"` : ''}>${title}</figcaption>${imgTag}</figure>`
+                ? `<figure ${globalFigureClasses ? ` class="${globalFigureClasses}"` : ''}>${pos !== 'top' 
+                    ? `${imgTag}<figcaption ${globalFigcaptionClasses ? ` class="${globalFigcaptionClasses}"` : ''}>${title}</figcaption>` 
+                    : `<figcaption ${globalFigcaptionClasses ? ` class="${globalFigcaptionClasses}"` : ''}>${title}</figcaption>${imgTag}`
+            } </figure>`
                 : `<figure ${globalFigureClasses ? ` class="${globalFigureClasses}"` : ''}>${imgTag}</figure>`;
         }
         if (old) {
