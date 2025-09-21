@@ -4,8 +4,6 @@ import 'dotenv/config';
 import { execSync } from "child_process";
 import {configDotenv} from "dotenv";
 
-// the script works but my token is being wrongled, idk why, so just did it manually
-
 execSync("pnpm run build", { stdio: "inherit" });
 
 execSync("pnpm publish --no-git-checks", { stdio: "inherit" });
